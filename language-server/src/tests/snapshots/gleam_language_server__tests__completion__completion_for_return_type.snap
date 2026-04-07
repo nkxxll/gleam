@@ -1,0 +1,8 @@
+---
+source: language-server/src/tests/completion.rs
+expression: pub fn new() -> I
+---
+pub fn new() -> I|
+
+
+----- Completion content -----

@@ -2368,6 +2368,24 @@ fn completion_for_type() {
 }
 
 #[test]
+fn completion_for_return_type_that_works() {
+    let code = "pub fn new() -> I {}";
+    assert_completion!(
+        TestProject::for_source(code).add_dep_module("Int", ""),
+        Position::new(0, 17)
+    );
+}
+
+#[test]
+fn completion_for_return_type() {
+    let code = "pub fn new() -> I";
+    assert_completion!(
+        TestProject::for_source(code).add_dep_module("Int", ""),
+        Position::new(0, 17)
+    );
+}
+
+#[test]
 fn completion_for_partially_correct_existing_module_select() {
     let dep = "pub fn filter() {}";
     let code = "
